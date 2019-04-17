@@ -29,7 +29,7 @@ int findSmallestElement(int arr[], int n){
 int main()
 {
 	int n;
-	cout<<"Enter the no of pending requests : ";
+	cout<<"Enter the size of queue : ";
 	cin>>n;
 	int *fifo;
 	fifo=new int[n+1];
@@ -37,11 +37,12 @@ int main()
 	cout<<"Enter the initial head position : ";
 	cin>>ih;
 	fifo[0]=ih;
+	cout<<"Enter the  pending requests : ";
 	for(int i=1;i<=n;i++)
 	{
 		cin>>fifo[i];
 	}
-	cout<<"The no of pending requests : ";
+	cout<<"The no of pending requests  are : ";
 	for(int i=1;i<=n;i++)
 	{
 		cout<<"  "<<fifo[i];
@@ -58,7 +59,7 @@ int main()
 	}
 	
 //	insertionSort(fifo1,n);
-	cout<<"\nThe distance list from the current request with SSTF disk-scheduling  : ";
+	cout<<"\nThe distance list of pending requests from the current head position with SSTF disk-scheduling  : ";
 	for(int i=1;i<=n;i++)
 	{
 		cout<<"  "<<fifo1[i];
@@ -74,7 +75,7 @@ int main()
 		}
 	}}
 	cout<<"\n";
-	cout<<"new";
+	cout<<"The pending requests according to their distance from current head position";
 	for(int i=0;i<=n;i++)
 	{
 		cout<<"  "<<fifo[i];
@@ -83,10 +84,13 @@ int main()
 	for(int i=0;i<n;i++)
 	{
 		sum1=abs(fifo[i+1]-fifo[i]);
+		printf("\n");
+		printf("The disk head moved from %d to %d with seek time %d",fifo[i],fifo[i+1],sum1);
+		
 		sum=sum+sum1;
 		sum1=0;		
 	}
-	cout<<"\nThe total distance to travel to cover all the pending requests with SSTF disk scheduling :"<<sum;	
+	cout<<"\nThe total distance is :"<<sum;	
 }
 	
 
